@@ -9,4 +9,5 @@ public:
 	String^ password;
 	String^ name;
 	String^ surname;
+	int money;
 };

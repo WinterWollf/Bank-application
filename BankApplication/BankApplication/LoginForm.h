@@ -176,6 +176,7 @@ namespace BankApplication {
 				user->password = reader->GetString(2);
 				user->name = reader->GetString(3);
 				user->surname = reader->GetString(4);
+				user->money = reader->GetInt32(5);
 
 				this->Close();
 			}

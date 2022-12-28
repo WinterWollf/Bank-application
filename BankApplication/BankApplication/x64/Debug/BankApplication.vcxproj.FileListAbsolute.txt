@@ -2,3 +2,4 @@ C:\Users\wikto\Desktop\Bank-application\BankApplication\BankApplication\x64\Debu
 C:\Users\wikto\Desktop\Bank-application\BankApplication\BankApplication\x64\Debug\BankApplication.vcxproj.SuggestedBindingRedirects.cache
 C:\Users\wikto\Desktop\Bank-application\BankApplication\BankApplication\x64\Debug\BankApplication.LoginForm.resources
 C:\Users\wikto\Desktop\Bank-application\BankApplication\BankApplication\x64\Debug\BankApplication.vcxproj.GenerateResource.cache
+C:\Users\wikto\Desktop\Bank-application\BankApplication\BankApplication\x64\Debug\BankApplication.DashboardForm.resources

@@ -1,3 +1,4 @@
+  BankApplication.DashboardForm.resources - Embedded, ContainedInManifestFile, 
   BankApplication.LoginForm.resources - Embedded, ContainedInManifestFile, 
 ImageRuntimeVersion: v4.0.30319
 Assembly BankApplication, Version=0.0.*, Culture=Język niezmienny (kraj niezmienny): 
@@ -22,6 +23,10 @@ Class User: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     System.String password : Public
     System.String name : Public
     System.String surname : Public
+    Int32 money : Public
+Class BankApplication.DashboardForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(User): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class BankApplication.LoginForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

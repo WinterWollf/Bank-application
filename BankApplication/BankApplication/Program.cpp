@@ -1,4 +1,5 @@
 #include "LoginForm.h"
+#include "DashboardForm.h"
 
 using namespace System;
 using namespace System::Windows::Forms;
@@ -13,8 +14,8 @@ void main(array<String^>^ args) {
 	User^ user = loginForm.user;
 
 	if (user != nullptr) {
-		MessageBox::Show("Autoryzacja udana! Witaj " + user->name,
-			"Autoryzacja", MessageBoxButtons::OK);
+		BankApplication::DashboardForm dashBoard(user);
+		Application::Run(% dashBoard);
 	}
 	else {
 		MessageBox::Show("Odmowa autoryzacji",

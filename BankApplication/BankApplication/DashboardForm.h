@@ -1,4 +1,5 @@
 #pragma once
+#include "User.h"
 
 namespace BankApplication {
 
@@ -15,12 +16,16 @@ namespace BankApplication {
 	public ref class DashboardForm : public System::Windows::Forms::Form
 	{
 	public:
-		DashboardForm(void)
+		DashboardForm(User ^user)
 		{
 			InitializeComponent();
 			//
 			//TODO: W tym miejscu dodaj kod konstruktora
 			//
+
+			//Inicializacja
+			lbUserInfo->Text = "ID: " + user->id + "Imiê: " + user->name + "Nazwisko:" 
+				+ user->surname + "Money: " + user->money;
 		}
 
 	protected:
@@ -34,6 +39,11 @@ namespace BankApplication {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::Label^ Witaj;
+	private: System::Windows::Forms::Label^ lbUserInfo;
+	protected:
+
+	protected:
 
 	private:
 		/// <summary>
@@ -48,11 +58,44 @@ namespace BankApplication {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->components = gcnew System::ComponentModel::Container();
-			this->Size = System::Drawing::Size(300,300);
-			this->Text = L"DashboardForm";
-			this->Padding = System::Windows::Forms::Padding(0);
+			this->Witaj = (gcnew System::Windows::Forms::Label());
+			this->lbUserInfo = (gcnew System::Windows::Forms::Label());
+			this->SuspendLayout();
+			// 
+			// Witaj
+			// 
+			this->Witaj->AutoSize = true;
+			this->Witaj->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 22.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->Witaj->Location = System::Drawing::Point(550, 37);
+			this->Witaj->Name = L"Witaj";
+			this->Witaj->Size = System::Drawing::Size(100, 42);
+			this->Witaj->TabIndex = 0;
+			this->Witaj->Text = L"Witaj";
+			// 
+			// lbUserInfo
+			// 
+			this->lbUserInfo->AutoSize = true;
+			this->lbUserInfo->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->lbUserInfo->Location = System::Drawing::Point(173, 105);
+			this->lbUserInfo->Name = L"lbUserInfo";
+			this->lbUserInfo->Size = System::Drawing::Size(208, 39);
+			this->lbUserInfo->TabIndex = 1;
+			this->lbUserInfo->Text = L"U¿ytkownik: ";
+			// 
+			// DashboardForm
+			// 
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->ClientSize = System::Drawing::Size(1313, 533);
+			this->Controls->Add(this->lbUserInfo);
+			this->Controls->Add(this->Witaj);
+			this->Name = L"DashboardForm";
+			this->Text = L"DashboardForm";
+			this->ResumeLayout(false);
+			this->PerformLayout();
+
 		}
 #pragma endregion
 	};
