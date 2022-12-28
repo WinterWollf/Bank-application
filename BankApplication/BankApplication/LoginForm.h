@@ -1,4 +1,6 @@
 #pragma once
+ 
+#include "User.h"
 
 namespace BankApplication {
 
@@ -8,6 +10,7 @@ namespace BankApplication {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Data::SqlClient;
 
 	/// <summary>
 	/// Podsumowanie informacji o LoginForm
@@ -34,6 +37,21 @@ namespace BankApplication {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::Label^ password;
+	protected:
+
+	protected:
+
+
+	protected:
+
+	private: System::Windows::Forms::TextBox^ tbLogin;
+	private: System::Windows::Forms::TextBox^ tbPassword;
+	private: System::Windows::Forms::Button^ btLog_in;
+	private: System::Windows::Forms::Label^ login;
+
+
+	protected:
 
 	private:
 		/// <summary>
@@ -48,18 +66,128 @@ namespace BankApplication {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->login = (gcnew System::Windows::Forms::Label());
+			this->password = (gcnew System::Windows::Forms::Label());
+			this->tbLogin = (gcnew System::Windows::Forms::TextBox());
+			this->tbPassword = (gcnew System::Windows::Forms::TextBox());
+			this->btLog_in = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
+			// 
+			// login
+			// 
+			this->login->AutoSize = true;
+			this->login->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->login->Location = System::Drawing::Point(371, 183);
+			this->login->Name = L"login";
+			this->login->Size = System::Drawing::Size(93, 32);
+			this->login->TabIndex = 0;
+			this->login->Text = L"Login:";
+			// 
+			// password
+			// 
+			this->password->AutoSize = true;
+			this->password->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->password->Location = System::Drawing::Point(374, 232);
+			this->password->Name = L"password";
+			this->password->Size = System::Drawing::Size(95, 32);
+			this->password->TabIndex = 1;
+			this->password->Text = L"Has³o:";
+			// 
+			// tbLogin
+			// 
+			this->tbLogin->Location = System::Drawing::Point(520, 192);
+			this->tbLogin->Name = L"tbLogin";
+			this->tbLogin->Size = System::Drawing::Size(100, 22);
+			this->tbLogin->TabIndex = 2;
+			// 
+			// tbPassword
+			// 
+			this->tbPassword->Location = System::Drawing::Point(520, 241);
+			this->tbPassword->Name = L"tbPassword";
+			this->tbPassword->PasswordChar = '*';
+			this->tbPassword->Size = System::Drawing::Size(100, 22);
+			this->tbPassword->TabIndex = 3;
+			// 
+			// btLog_in
+			// 
+			this->btLog_in->Location = System::Drawing::Point(367, 314);
+			this->btLog_in->Name = L"btLog_in";
+			this->btLog_in->Size = System::Drawing::Size(288, 55);
+			this->btLog_in->TabIndex = 4;
+			this->btLog_in->Text = L"Zaloguj siê";
+			this->btLog_in->UseVisualStyleBackColor = true;
+			this->btLog_in->Click += gcnew System::EventHandler(this, &LoginForm::btLog_in_Click);
 			// 
 			// LoginForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1149, 524);
+			this->Controls->Add(this->btLog_in);
+			this->Controls->Add(this->tbPassword);
+			this->Controls->Add(this->tbLogin);
+			this->Controls->Add(this->password);
+			this->Controls->Add(this->login);
 			this->Name = L"LoginForm";
-			this->Text = L"LoginForm";
+			this->Text = L"Us³ugi bankowe AGH";
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
-	};
+	//Zmienna globalna - user
+	public: User^ user = nullptr;
+
+	private: System::Void btLog_in_Click(System::Object^ sender, System::EventArgs^ e) {
+		String^ login = this->tbLogin->Text;
+		String^ password = this->tbPassword->Text;
+
+		//Brak danych
+		if ((login->Length == 0) || (password->Length == 0)) {
+			MessageBox::Show("Proszê wprowadziæ login i has³o!",
+				"B³¹d logowania", MessageBoxButtons::OK);
+			return;
+		}
+		
+		//Obs³uga bazy danych
+		try { 
+			//Adres bazy danych
+			String^ connectionString = "Data Source=LAPTOP;Initial Catalog=BankApplication;Integrated Security=True";
+			
+			//Ustanowienie po³¹czenia
+			SqlConnection sqlConnection(connectionString);
+			sqlConnection.Open();
+
+			//Zapytanie SQL - login, has³o
+			String^ sqlQuerry = "SELECT * FROM users WHERE login=@login AND password=@password;";
+			SqlCommand command(sqlQuerry, % sqlConnection);
+			command.Parameters->AddWithValue("@login", login);
+			command.Parameters->AddWithValue("@password", password);
+
+			//Wywo³anie zapytania
+			SqlDataReader^ reader = command.ExecuteReader();
+			if (reader->Read()) { //Znaleziono u¿ytkownika - dane poprawne
+				//Inicjalizacja zmiennej user 
+				user = gcnew User;
+				user->id = reader->GetInt32(0);
+				user->login = reader->GetString(1);
+				user->password = reader->GetString(2);
+				user->name = reader->GetString(3);
+				user->surname = reader->GetString(4);
+
+				this->Close();
+			}
+			else { //Nie znaleziono u¿ytkownika - b³êdne dane
+				MessageBox::Show("Nieprawid³owy login lub has³o!",
+					"B³êdne dane", MessageBoxButtons::OK);	 
+			}
+		}
+		catch (Exception^ e) { //B³¹d po³¹czenia z baz¹ danych
+			MessageBox::Show("B³¹d po³¹czenia z baz¹ danych. Przepraszamy za utrudnienia",
+				"B³¹d po³¹czenia", MessageBoxButtons::OK);
+		}
+	}
+};
 }
