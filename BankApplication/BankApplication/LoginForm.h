@@ -37,7 +37,7 @@ namespace BankApplication {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Label^ password;
+
 	protected:
 
 	protected:
@@ -48,7 +48,7 @@ namespace BankApplication {
 	private: System::Windows::Forms::TextBox^ tbLogin;
 	private: System::Windows::Forms::TextBox^ tbPassword;
 	private: System::Windows::Forms::Button^ btLog_in;
-	private: System::Windows::Forms::Label^ login;
+
 	private: System::Windows::Forms::Button^ btRegister;
 
 
@@ -69,66 +69,58 @@ namespace BankApplication {
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(LoginForm::typeid));
-			this->login = (gcnew System::Windows::Forms::Label());
-			this->password = (gcnew System::Windows::Forms::Label());
 			this->tbLogin = (gcnew System::Windows::Forms::TextBox());
 			this->tbPassword = (gcnew System::Windows::Forms::TextBox());
 			this->btLog_in = (gcnew System::Windows::Forms::Button());
 			this->btRegister = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
-			// login
-			// 
-			this->login->AutoSize = true;
-			this->login->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(238)));
-			this->login->Location = System::Drawing::Point(469, 127);
-			this->login->Name = L"login";
-			this->login->Size = System::Drawing::Size(93, 32);
-			this->login->TabIndex = 0;
-			this->login->Text = L"Login:";
-			// 
-			// password
-			// 
-			this->password->AutoSize = true;
-			this->password->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(238)));
-			this->password->Location = System::Drawing::Point(453, 168);
-			this->password->Name = L"password";
-			this->password->Size = System::Drawing::Size(95, 32);
-			this->password->TabIndex = 1;
-			this->password->Text = L"Has³o:";
-			// 
 			// tbLogin
 			// 
-			this->tbLogin->Location = System::Drawing::Point(568, 127);
+			this->tbLogin->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->tbLogin->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->tbLogin->Font = (gcnew System::Drawing::Font(L"Calibri", 37));
+			this->tbLogin->Location = System::Drawing::Point(212, 287);
+			this->tbLogin->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->tbLogin->MaxLength = 20;
 			this->tbLogin->Name = L"tbLogin";
-			this->tbLogin->Size = System::Drawing::Size(258, 22);
+			this->tbLogin->Size = System::Drawing::Size(420, 61);
 			this->tbLogin->TabIndex = 2;
 			// 
 			// tbPassword
 			// 
-			this->tbPassword->Location = System::Drawing::Point(568, 178);
+			this->tbPassword->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->tbPassword->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->tbPassword->Font = (gcnew System::Drawing::Font(L"Calibri", 37));
+			this->tbPassword->Location = System::Drawing::Point(214, 394);
+			this->tbPassword->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->tbPassword->MaxLength = 20;
 			this->tbPassword->Name = L"tbPassword";
 			this->tbPassword->PasswordChar = '*';
-			this->tbPassword->Size = System::Drawing::Size(258, 22);
+			this->tbPassword->Size = System::Drawing::Size(424, 61);
 			this->tbPassword->TabIndex = 3;
 			// 
 			// btLog_in
 			// 
-			this->btLog_in->Location = System::Drawing::Point(722, 359);
+			this->btLog_in->BackColor = System::Drawing::Color::Transparent;
+			this->btLog_in->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btLog_in.BackgroundImage")));
+			this->btLog_in->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->btLog_in->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->btLog_in->Location = System::Drawing::Point(663, 560);
+			this->btLog_in->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btLog_in->Name = L"btLog_in";
-			this->btLog_in->Size = System::Drawing::Size(288, 55);
+			this->btLog_in->Size = System::Drawing::Size(217, 68);
 			this->btLog_in->TabIndex = 4;
-			this->btLog_in->Text = L"Zaloguj siê";
-			this->btLog_in->UseVisualStyleBackColor = true;
+			this->btLog_in->UseVisualStyleBackColor = false;
 			this->btLog_in->Click += gcnew System::EventHandler(this, &LoginForm::btLog_in_Click);
 			// 
 			// btRegister
 			// 
-			this->btRegister->Location = System::Drawing::Point(450, 359);
+			this->btRegister->Location = System::Drawing::Point(408, 570);
+			this->btRegister->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btRegister->Name = L"btRegister";
-			this->btRegister->Size = System::Drawing::Size(208, 55);
+			this->btRegister->Size = System::Drawing::Size(156, 45);
 			this->btRegister->TabIndex = 5;
 			this->btRegister->Text = L"Rejestracja";
 			this->btRegister->UseVisualStyleBackColor = true;
@@ -136,19 +128,22 @@ namespace BankApplication {
 			// 
 			// LoginForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::White;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
-			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
-			this->ClientSize = System::Drawing::Size(1149, 524);
+			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->ClientSize = System::Drawing::Size(1443, 857);
 			this->Controls->Add(this->btRegister);
 			this->Controls->Add(this->btLog_in);
 			this->Controls->Add(this->tbPassword);
 			this->Controls->Add(this->tbLogin);
-			this->Controls->Add(this->password);
-			this->Controls->Add(this->login);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"LoginForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Us³ugi bankowe AGH";
+			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
