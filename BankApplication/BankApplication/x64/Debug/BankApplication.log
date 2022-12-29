@@ -1,4 +1,5 @@
-﻿  DashboardForm.cpp
+﻿  LoginForm.cpp
+C:\Users\wikto\Desktop\Bank-application\BankApplication\BankApplication\LoginForm.h(188,21): warning C4101: "e": lokalna zmienna, do której nie istnieje odwołanie
   Program.cpp
 C:\Users\wikto\Desktop\Bank-application\BankApplication\BankApplication\LoginForm.h(188,21): warning C4101: "e": lokalna zmienna, do której nie istnieje odwołanie
 C:\Users\wikto\Desktop\Bank-application\BankApplication\BankApplication\Program.cpp(7,33): warning C4829: Możliwe niepoprawne parametry funkcji main. Rozważ użycie "int main(Platform::Array<Platform::String^>^ argv)"
