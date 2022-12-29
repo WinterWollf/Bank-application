@@ -49,6 +49,8 @@ namespace BankApplication {
 	private: System::Windows::Forms::TextBox^ tbPassword;
 	private: System::Windows::Forms::Button^ btLog_in;
 	private: System::Windows::Forms::Label^ login;
+	private: System::Windows::Forms::Button^ btRegister;
+
 
 
 	protected:
@@ -66,11 +68,13 @@ namespace BankApplication {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(LoginForm::typeid));
 			this->login = (gcnew System::Windows::Forms::Label());
 			this->password = (gcnew System::Windows::Forms::Label());
 			this->tbLogin = (gcnew System::Windows::Forms::TextBox());
 			this->tbPassword = (gcnew System::Windows::Forms::TextBox());
 			this->btLog_in = (gcnew System::Windows::Forms::Button());
+			this->btRegister = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// login
@@ -78,7 +82,7 @@ namespace BankApplication {
 			this->login->AutoSize = true;
 			this->login->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->login->Location = System::Drawing::Point(371, 183);
+			this->login->Location = System::Drawing::Point(469, 127);
 			this->login->Name = L"login";
 			this->login->Size = System::Drawing::Size(93, 32);
 			this->login->TabIndex = 0;
@@ -89,7 +93,7 @@ namespace BankApplication {
 			this->password->AutoSize = true;
 			this->password->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->password->Location = System::Drawing::Point(374, 232);
+			this->password->Location = System::Drawing::Point(453, 168);
 			this->password->Name = L"password";
 			this->password->Size = System::Drawing::Size(95, 32);
 			this->password->TabIndex = 1;
@@ -97,22 +101,22 @@ namespace BankApplication {
 			// 
 			// tbLogin
 			// 
-			this->tbLogin->Location = System::Drawing::Point(520, 192);
+			this->tbLogin->Location = System::Drawing::Point(568, 127);
 			this->tbLogin->Name = L"tbLogin";
-			this->tbLogin->Size = System::Drawing::Size(100, 22);
+			this->tbLogin->Size = System::Drawing::Size(258, 22);
 			this->tbLogin->TabIndex = 2;
 			// 
 			// tbPassword
 			// 
-			this->tbPassword->Location = System::Drawing::Point(520, 241);
+			this->tbPassword->Location = System::Drawing::Point(568, 178);
 			this->tbPassword->Name = L"tbPassword";
 			this->tbPassword->PasswordChar = '*';
-			this->tbPassword->Size = System::Drawing::Size(100, 22);
+			this->tbPassword->Size = System::Drawing::Size(258, 22);
 			this->tbPassword->TabIndex = 3;
 			// 
 			// btLog_in
 			// 
-			this->btLog_in->Location = System::Drawing::Point(367, 314);
+			this->btLog_in->Location = System::Drawing::Point(722, 359);
 			this->btLog_in->Name = L"btLog_in";
 			this->btLog_in->Size = System::Drawing::Size(288, 55);
 			this->btLog_in->TabIndex = 4;
@@ -120,11 +124,24 @@ namespace BankApplication {
 			this->btLog_in->UseVisualStyleBackColor = true;
 			this->btLog_in->Click += gcnew System::EventHandler(this, &LoginForm::btLog_in_Click);
 			// 
+			// btRegister
+			// 
+			this->btRegister->Location = System::Drawing::Point(450, 359);
+			this->btRegister->Name = L"btRegister";
+			this->btRegister->Size = System::Drawing::Size(208, 55);
+			this->btRegister->TabIndex = 5;
+			this->btRegister->Text = L"Rejestracja";
+			this->btRegister->UseVisualStyleBackColor = true;
+			this->btRegister->Click += gcnew System::EventHandler(this, &LoginForm::btRegister_Click);
+			// 
 			// LoginForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
+			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
 			this->ClientSize = System::Drawing::Size(1149, 524);
+			this->Controls->Add(this->btRegister);
 			this->Controls->Add(this->btLog_in);
 			this->Controls->Add(this->tbPassword);
 			this->Controls->Add(this->tbLogin);
@@ -140,11 +157,14 @@ namespace BankApplication {
 	//Zmienna globalna - user
 	public: User^ user = nullptr;
 
+	//Zmienna globalna - switchToRegister
+	public: bool switchToRegister = false;
+
 	private: System::Void btLog_in_Click(System::Object^ sender, System::EventArgs^ e) {
 		String^ login = this->tbLogin->Text;
 		String^ password = this->tbPassword->Text;
 
-		//Brak danych
+		//B³¹d - brak danych
 		if ((login->Length == 0) || (password->Length == 0)) {
 			MessageBox::Show("Proszê wprowadziæ login i has³o!",
 				"B³¹d logowania", MessageBoxButtons::OK);
@@ -177,6 +197,7 @@ namespace BankApplication {
 				user->name = reader->GetString(3);
 				user->surname = reader->GetString(4);
 				user->money = reader->GetInt32(5);
+				user->PESEL = reader->GetString(6);
 
 				this->Close();
 			}
@@ -189,6 +210,10 @@ namespace BankApplication {
 			MessageBox::Show("B³¹d po³¹czenia z baz¹ danych. Przepraszamy za utrudnienia",
 				"B³¹d po³¹czenia", MessageBoxButtons::OK);
 		}
+	}
+	private: System::Void btRegister_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->switchToRegister = true;
+		this->Close();
 	}
 };
 }

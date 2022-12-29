@@ -10,4 +10,5 @@ public:
 	String^ name;
 	String^ surname;
 	int money;
+	String^ PESEL;
 };
