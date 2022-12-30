@@ -37,22 +37,28 @@ namespace BankApplication {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Label^ lbRegister;
+
 	protected:
-	private: System::Windows::Forms::Label^ lbName;
-	private: System::Windows::Forms::Label^ lbSurname;
-	private: System::Windows::Forms::Label^ lbLogin;
-	private: System::Windows::Forms::Label^ lbPassword;
-	private: System::Windows::Forms::Label^ lbPESEL;
+
+
+
+
+
 	private: System::Windows::Forms::TextBox^ tbName;
 	private: System::Windows::Forms::TextBox^ tbSurname;
 	private: System::Windows::Forms::TextBox^ tbLogin;
 	private: System::Windows::Forms::TextBox^ tbPassword;
-	private: System::Windows::Forms::Label^ lbCPassword;
+
 	private: System::Windows::Forms::TextBox^ tbCPassword;
 	private: System::Windows::Forms::TextBox^ tbPESEL;
 	private: System::Windows::Forms::Button^ btConfirm;
 	private: System::Windows::Forms::Button^ btLog_in_2;
+	private: System::Windows::Forms::ContextMenuStrip^ contextMenuStrip1;
+
+
+
+
+	private: System::ComponentModel::IContainer^ components;
 
 
 
@@ -64,7 +70,7 @@ namespace BankApplication {
 		/// <summary>
 		/// Wymagana zmienna projektanta.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -73,187 +79,169 @@ namespace BankApplication {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->lbRegister = (gcnew System::Windows::Forms::Label());
-			this->lbName = (gcnew System::Windows::Forms::Label());
-			this->lbSurname = (gcnew System::Windows::Forms::Label());
-			this->lbLogin = (gcnew System::Windows::Forms::Label());
-			this->lbPassword = (gcnew System::Windows::Forms::Label());
-			this->lbPESEL = (gcnew System::Windows::Forms::Label());
+			this->components = (gcnew System::ComponentModel::Container());
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(RegisterForm::typeid));
 			this->tbName = (gcnew System::Windows::Forms::TextBox());
 			this->tbSurname = (gcnew System::Windows::Forms::TextBox());
 			this->tbLogin = (gcnew System::Windows::Forms::TextBox());
 			this->tbPassword = (gcnew System::Windows::Forms::TextBox());
-			this->lbCPassword = (gcnew System::Windows::Forms::Label());
 			this->tbCPassword = (gcnew System::Windows::Forms::TextBox());
 			this->tbPESEL = (gcnew System::Windows::Forms::TextBox());
 			this->btConfirm = (gcnew System::Windows::Forms::Button());
 			this->btLog_in_2 = (gcnew System::Windows::Forms::Button());
+			this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
 			this->SuspendLayout();
-			// 
-			// lbRegister
-			// 
-			this->lbRegister->AutoSize = true;
-			this->lbRegister->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(238)));
-			this->lbRegister->Location = System::Drawing::Point(428, 18);
-			this->lbRegister->Name = L"lbRegister";
-			this->lbRegister->Size = System::Drawing::Size(193, 32);
-			this->lbRegister->TabIndex = 0;
-			this->lbRegister->Text = L"Zarejestruj siê";
-			// 
-			// lbName
-			// 
-			this->lbName->AutoSize = true;
-			this->lbName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(238)));
-			this->lbName->Location = System::Drawing::Point(56, 93);
-			this->lbName->Name = L"lbName";
-			this->lbName->Size = System::Drawing::Size(40, 20);
-			this->lbName->TabIndex = 1;
-			this->lbName->Text = L"Imiê";
-			// 
-			// lbSurname
-			// 
-			this->lbSurname->AutoSize = true;
-			this->lbSurname->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(238)));
-			this->lbSurname->Location = System::Drawing::Point(46, 134);
-			this->lbSurname->Name = L"lbSurname";
-			this->lbSurname->Size = System::Drawing::Size(81, 20);
-			this->lbSurname->TabIndex = 2;
-			this->lbSurname->Text = L"Nazwisko";
-			// 
-			// lbLogin
-			// 
-			this->lbLogin->AutoSize = true;
-			this->lbLogin->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(238)));
-			this->lbLogin->Location = System::Drawing::Point(46, 168);
-			this->lbLogin->Name = L"lbLogin";
-			this->lbLogin->Size = System::Drawing::Size(50, 20);
-			this->lbLogin->TabIndex = 3;
-			this->lbLogin->Text = L"Login";
-			// 
-			// lbPassword
-			// 
-			this->lbPassword->AutoSize = true;
-			this->lbPassword->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(238)));
-			this->lbPassword->Location = System::Drawing::Point(54, 211);
-			this->lbPassword->Name = L"lbPassword";
-			this->lbPassword->Size = System::Drawing::Size(53, 20);
-			this->lbPassword->TabIndex = 4;
-			this->lbPassword->Text = L"Has³o";
-			// 
-			// lbPESEL
-			// 
-			this->lbPESEL->AutoSize = true;
-			this->lbPESEL->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(238)));
-			this->lbPESEL->Location = System::Drawing::Point(47, 278);
-			this->lbPESEL->Name = L"lbPESEL";
-			this->lbPESEL->Size = System::Drawing::Size(63, 20);
-			this->lbPESEL->TabIndex = 5;
-			this->lbPESEL->Text = L"PESEL";
 			// 
 			// tbName
 			// 
-			this->tbName->Location = System::Drawing::Point(143, 93);
+			this->tbName->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(41)), static_cast<System::Int32>(static_cast<System::Byte>(43)),
+				static_cast<System::Int32>(static_cast<System::Byte>(92)));
+			this->tbName->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->tbName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 28.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->tbName->ForeColor = System::Drawing::Color::White;
+			this->tbName->Location = System::Drawing::Point(1627, 389);
+			this->tbName->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->tbName->MaxLength = 20;
 			this->tbName->Name = L"tbName";
-			this->tbName->Size = System::Drawing::Size(100, 22);
+			this->tbName->Size = System::Drawing::Size(380, 54);
 			this->tbName->TabIndex = 0;
 			// 
 			// tbSurname
 			// 
-			this->tbSurname->Location = System::Drawing::Point(143, 134);
+			this->tbSurname->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(41)), static_cast<System::Int32>(static_cast<System::Byte>(43)),
+				static_cast<System::Int32>(static_cast<System::Byte>(92)));
+			this->tbSurname->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->tbSurname->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 28.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->tbSurname->ForeColor = System::Drawing::Color::White;
+			this->tbSurname->Location = System::Drawing::Point(1627, 475);
+			this->tbSurname->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->tbSurname->MaxLength = 20;
 			this->tbSurname->Name = L"tbSurname";
-			this->tbSurname->Size = System::Drawing::Size(100, 22);
-			this->tbSurname->TabIndex = 6;
+			this->tbSurname->Size = System::Drawing::Size(380, 54);
+			this->tbSurname->TabIndex = 1;
 			// 
 			// tbLogin
 			// 
-			this->tbLogin->Location = System::Drawing::Point(143, 168);
+			this->tbLogin->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(41)), static_cast<System::Int32>(static_cast<System::Byte>(43)),
+				static_cast<System::Int32>(static_cast<System::Byte>(92)));
+			this->tbLogin->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->tbLogin->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 28.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->tbLogin->ForeColor = System::Drawing::Color::White;
+			this->tbLogin->Location = System::Drawing::Point(1627, 651);
+			this->tbLogin->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->tbLogin->MaxLength = 20;
 			this->tbLogin->Name = L"tbLogin";
-			this->tbLogin->Size = System::Drawing::Size(100, 22);
-			this->tbLogin->TabIndex = 7;
+			this->tbLogin->Size = System::Drawing::Size(380, 54);
+			this->tbLogin->TabIndex = 3;
 			// 
 			// tbPassword
 			// 
-			this->tbPassword->Location = System::Drawing::Point(143, 208);
+			this->tbPassword->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(41)), static_cast<System::Int32>(static_cast<System::Byte>(43)),
+				static_cast<System::Int32>(static_cast<System::Byte>(92)));
+			this->tbPassword->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->tbPassword->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 28.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->tbPassword->ForeColor = System::Drawing::Color::White;
+			this->tbPassword->Location = System::Drawing::Point(1627, 738);
+			this->tbPassword->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->tbPassword->MaxLength = 20;
 			this->tbPassword->Name = L"tbPassword";
 			this->tbPassword->PasswordChar = '*';
-			this->tbPassword->Size = System::Drawing::Size(100, 22);
-			this->tbPassword->TabIndex = 8;
-			// 
-			// lbCPassword
-			// 
-			this->lbCPassword->AutoSize = true;
-			this->lbCPassword->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(238)));
-			this->lbCPassword->Location = System::Drawing::Point(36, 244);
-			this->lbCPassword->Name = L"lbCPassword";
-			this->lbCPassword->Size = System::Drawing::Size(115, 20);
-			this->lbCPassword->TabIndex = 9;
-			this->lbCPassword->Text = L"Powtórz has³o";
+			this->tbPassword->Size = System::Drawing::Size(380, 54);
+			this->tbPassword->TabIndex = 4;
 			// 
 			// tbCPassword
 			// 
-			this->tbCPassword->Location = System::Drawing::Point(176, 244);
+			this->tbCPassword->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(41)), static_cast<System::Int32>(static_cast<System::Byte>(43)),
+				static_cast<System::Int32>(static_cast<System::Byte>(92)));
+			this->tbCPassword->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->tbCPassword->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 28.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->tbCPassword->ForeColor = System::Drawing::Color::White;
+			this->tbCPassword->Location = System::Drawing::Point(1627, 825);
+			this->tbCPassword->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->tbCPassword->MaxLength = 20;
 			this->tbCPassword->Name = L"tbCPassword";
 			this->tbCPassword->PasswordChar = '*';
-			this->tbCPassword->Size = System::Drawing::Size(100, 22);
-			this->tbCPassword->TabIndex = 10;
+			this->tbCPassword->Size = System::Drawing::Size(380, 54);
+			this->tbCPassword->TabIndex = 5;
 			// 
 			// tbPESEL
 			// 
-			this->tbPESEL->Location = System::Drawing::Point(143, 278);
+			this->tbPESEL->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(41)), static_cast<System::Int32>(static_cast<System::Byte>(43)),
+				static_cast<System::Int32>(static_cast<System::Byte>(92)));
+			this->tbPESEL->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->tbPESEL->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 28.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->tbPESEL->ForeColor = System::Drawing::Color::White;
+			this->tbPESEL->Location = System::Drawing::Point(1627, 564);
+			this->tbPESEL->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->tbPESEL->MaxLength = 11;
 			this->tbPESEL->Name = L"tbPESEL";
-			this->tbPESEL->Size = System::Drawing::Size(100, 22);
-			this->tbPESEL->TabIndex = 11;
+			this->tbPESEL->Size = System::Drawing::Size(380, 54);
+			this->tbPESEL->TabIndex = 2;
 			// 
 			// btConfirm
 			// 
-			this->btConfirm->Location = System::Drawing::Point(249, 390);
+			this->btConfirm->BackColor = System::Drawing::Color::Transparent;
+			this->btConfirm->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btConfirm.BackgroundImage")));
+			this->btConfirm->Font = (gcnew System::Drawing::Font(L"Calibri", 18, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->btConfirm->Location = System::Drawing::Point(1537, 940);
+			this->btConfirm->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btConfirm->Name = L"btConfirm";
-			this->btConfirm->Size = System::Drawing::Size(163, 66);
-			this->btConfirm->TabIndex = 12;
+			this->btConfirm->Size = System::Drawing::Size(211, 57);
+			this->btConfirm->TabIndex = 6;
 			this->btConfirm->Text = L"PotwierdŸ";
-			this->btConfirm->UseVisualStyleBackColor = true;
+			this->btConfirm->UseVisualStyleBackColor = false;
 			this->btConfirm->Click += gcnew System::EventHandler(this, &RegisterForm::btConfirm_Click);
 			// 
 			// btLog_in_2
 			// 
-			this->btLog_in_2->Location = System::Drawing::Point(545, 408);
+			this->btLog_in_2->BackColor = System::Drawing::Color::Transparent;
+			this->btLog_in_2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btLog_in_2.BackgroundImage")));
+			this->btLog_in_2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->btLog_in_2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->btLog_in_2->Location = System::Drawing::Point(749, 871);
+			this->btLog_in_2->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btLog_in_2->Name = L"btLog_in_2";
-			this->btLog_in_2->Size = System::Drawing::Size(138, 48);
-			this->btLog_in_2->TabIndex = 13;
-			this->btLog_in_2->Text = L"Logowanie";
-			this->btLog_in_2->UseVisualStyleBackColor = true;
+			this->btLog_in_2->Size = System::Drawing::Size(93, 85);
+			this->btLog_in_2->TabIndex = 7;
+			this->btLog_in_2->UseVisualStyleBackColor = false;
 			this->btLog_in_2->Click += gcnew System::EventHandler(this, &RegisterForm::btLog_in_2_Click);
+			// 
+			// contextMenuStrip1
+			// 
+			this->contextMenuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
+			this->contextMenuStrip1->Name = L"contextMenuStrip1";
+			this->contextMenuStrip1->Size = System::Drawing::Size(61, 4);
 			// 
 			// RegisterForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1091, 518);
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
+			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->ClientSize = System::Drawing::Size(1924, 1055);
 			this->Controls->Add(this->btLog_in_2);
 			this->Controls->Add(this->btConfirm);
 			this->Controls->Add(this->tbPESEL);
 			this->Controls->Add(this->tbCPassword);
-			this->Controls->Add(this->lbCPassword);
 			this->Controls->Add(this->tbPassword);
 			this->Controls->Add(this->tbLogin);
 			this->Controls->Add(this->tbSurname);
 			this->Controls->Add(this->tbName);
-			this->Controls->Add(this->lbPESEL);
-			this->Controls->Add(this->lbPassword);
-			this->Controls->Add(this->lbLogin);
-			this->Controls->Add(this->lbSurname);
-			this->Controls->Add(this->lbName);
-			this->Controls->Add(this->lbRegister);
+			this->DoubleBuffered = true;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Name = L"RegisterForm";
-			this->Text = L"RegisterForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
+			this->Text = L"Us³ugi bankowe AGH - rejestracja";
+			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -289,7 +277,7 @@ namespace BankApplication {
 
 		//Warunek - identyczne has³a
 		if (String::Compare(password, CPassword) != 0) {
-			MessageBox::Show("Wprowadzono b³êdne has³a",
+			MessageBox::Show("Wprowadzono b³êdne has³a!",
 				"B³¹d zgodnoœci", MessageBoxButtons::OK);
 
 			return;

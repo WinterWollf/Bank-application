@@ -58,6 +58,7 @@ namespace BankApplication {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(DashboardForm::typeid));
 			this->Witaj = (gcnew System::Windows::Forms::Label());
 			this->lbUserInfo = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
@@ -69,7 +70,7 @@ namespace BankApplication {
 				static_cast<System::Byte>(238)));
 			this->Witaj->Location = System::Drawing::Point(550, 37);
 			this->Witaj->Name = L"Witaj";
-			this->Witaj->Size = System::Drawing::Size(100, 42);
+			this->Witaj->Size = System::Drawing::Size(82, 36);
 			this->Witaj->TabIndex = 0;
 			this->Witaj->Text = L"Witaj";
 			// 
@@ -80,7 +81,7 @@ namespace BankApplication {
 				static_cast<System::Byte>(238)));
 			this->lbUserInfo->Location = System::Drawing::Point(173, 105);
 			this->lbUserInfo->Name = L"lbUserInfo";
-			this->lbUserInfo->Size = System::Drawing::Size(208, 39);
+			this->lbUserInfo->Size = System::Drawing::Size(169, 31);
 			this->lbUserInfo->TabIndex = 1;
 			this->lbUserInfo->Text = L"U¿ytkownik: ";
 			// 
@@ -91,8 +92,11 @@ namespace BankApplication {
 			this->ClientSize = System::Drawing::Size(1313, 533);
 			this->Controls->Add(this->lbUserInfo);
 			this->Controls->Add(this->Witaj);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"DashboardForm";
-			this->Text = L"DashboardForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
+			this->Text = L"Us³ugi bankowe AGH - pulpit";
+			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
