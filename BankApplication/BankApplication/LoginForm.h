@@ -78,27 +78,35 @@ namespace BankApplication {
 			// tbLogin
 			// 
 			this->tbLogin->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->tbLogin->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(54)), static_cast<System::Int32>(static_cast<System::Byte>(58)),
+				static_cast<System::Int32>(static_cast<System::Byte>(129)));
 			this->tbLogin->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->tbLogin->Font = (gcnew System::Drawing::Font(L"Calibri", 37));
-			this->tbLogin->Location = System::Drawing::Point(283, 353);
-			this->tbLogin->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->tbLogin->Font = (gcnew System::Drawing::Font(L"Calibri", 28.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->tbLogin->ForeColor = System::Drawing::Color::White;
+			this->tbLogin->Location = System::Drawing::Point(218, 413);
+			this->tbLogin->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->tbLogin->MaxLength = 20;
 			this->tbLogin->Name = L"tbLogin";
-			this->tbLogin->Size = System::Drawing::Size(560, 61);
-			this->tbLogin->TabIndex = 2;
+			this->tbLogin->Size = System::Drawing::Size(286, 46);
+			this->tbLogin->TabIndex = 1;
 			// 
 			// tbPassword
 			// 
 			this->tbPassword->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->tbPassword->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(54)), static_cast<System::Int32>(static_cast<System::Byte>(58)),
+				static_cast<System::Int32>(static_cast<System::Byte>(129)));
 			this->tbPassword->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->tbPassword->Font = (gcnew System::Drawing::Font(L"Calibri", 37));
-			this->tbPassword->Location = System::Drawing::Point(285, 485);
-			this->tbPassword->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->tbPassword->Font = (gcnew System::Drawing::Font(L"Calibri", 28.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->tbPassword->ForeColor = System::Drawing::Color::White;
+			this->tbPassword->Location = System::Drawing::Point(218, 520);
+			this->tbPassword->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->tbPassword->MaxLength = 20;
 			this->tbPassword->Name = L"tbPassword";
 			this->tbPassword->PasswordChar = '*';
-			this->tbPassword->Size = System::Drawing::Size(565, 61);
-			this->tbPassword->TabIndex = 3;
+			this->tbPassword->Size = System::Drawing::Size(286, 46);
+			this->tbPassword->TabIndex = 2;
 			// 
 			// btLog_in
 			// 
@@ -107,11 +115,11 @@ namespace BankApplication {
 			this->btLog_in->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->btLog_in->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->btLog_in->Location = System::Drawing::Point(884, 689);
-			this->btLog_in->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->btLog_in->Location = System::Drawing::Point(560, 712);
+			this->btLog_in->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btLog_in->Name = L"btLog_in";
-			this->btLog_in->Size = System::Drawing::Size(289, 84);
-			this->btLog_in->TabIndex = 4;
+			this->btLog_in->Size = System::Drawing::Size(64, 65);
+			this->btLog_in->TabIndex = 3;
 			this->btLog_in->UseVisualStyleBackColor = false;
 			this->btLog_in->Click += gcnew System::EventHandler(this, &LoginForm::btLog_in_Click);
 			// 
@@ -120,29 +128,32 @@ namespace BankApplication {
 			this->btRegister->BackColor = System::Drawing::Color::Transparent;
 			this->btRegister->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btRegister.BackgroundImage")));
 			this->btRegister->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->btRegister->Location = System::Drawing::Point(613, 704);
-			this->btRegister->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->btRegister->Font = (gcnew System::Drawing::Font(L"Calibri", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->btRegister->Location = System::Drawing::Point(1180, 717);
+			this->btRegister->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btRegister->Name = L"btRegister";
-			this->btRegister->Size = System::Drawing::Size(206, 60);
-			this->btRegister->TabIndex = 5;
+			this->btRegister->Size = System::Drawing::Size(154, 49);
+			this->btRegister->TabIndex = 4;
+			this->btRegister->Text = L"Rejestracja";
 			this->btRegister->UseVisualStyleBackColor = false;
 			this->btRegister->Click += gcnew System::EventHandler(this, &LoginForm::btRegister_Click);
 			// 
 			// LoginForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::White;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->ClientSize = System::Drawing::Size(1924, 1055);
+			this->ClientSize = System::Drawing::Size(1443, 857);
 			this->Controls->Add(this->btRegister);
 			this->Controls->Add(this->btLog_in);
 			this->Controls->Add(this->tbPassword);
 			this->Controls->Add(this->tbLogin);
 			this->DoubleBuffered = true;
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
-			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"LoginForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Us³ugi bankowe AGH";
