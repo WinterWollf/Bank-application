@@ -24,8 +24,11 @@ namespace BankApplication {
 			//
 
 			//Inicializacja
-			lbUserInfo->Text = "ID: " + user->id + "Imiê: " + user->name + "Nazwisko:" 
-				+ user->surname + "Money: " + user->money;
+			lbName->Text = user->name;
+			lbSurname->Text = user->surname;
+			lbPESEL->Text = user->PESEL;
+			lbMoney->Text = "" + user->money;
+
 		}
 
 	protected:
@@ -39,8 +42,12 @@ namespace BankApplication {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Label^ Witaj;
-	private: System::Windows::Forms::Label^ lbUserInfo;
+
+
+	private: System::Windows::Forms::Label^ lbName;
+	private: System::Windows::Forms::Label^ lbSurname;
+	private: System::Windows::Forms::Label^ lbPESEL;
+	private: System::Windows::Forms::Label^ lbMoney;
 	protected:
 
 	protected:
@@ -59,43 +66,81 @@ namespace BankApplication {
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(DashboardForm::typeid));
-			this->Witaj = (gcnew System::Windows::Forms::Label());
-			this->lbUserInfo = (gcnew System::Windows::Forms::Label());
+			this->lbName = (gcnew System::Windows::Forms::Label());
+			this->lbSurname = (gcnew System::Windows::Forms::Label());
+			this->lbPESEL = (gcnew System::Windows::Forms::Label());
+			this->lbMoney = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
-			// Witaj
+			// lbName
 			// 
-			this->Witaj->AutoSize = true;
-			this->Witaj->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 22.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lbName->AutoSize = true;
+			this->lbName->BackColor = System::Drawing::Color::Transparent;
+			this->lbName->Font = (gcnew System::Drawing::Font(L"Segoe UI", 25.2F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->Witaj->Location = System::Drawing::Point(412, 30);
-			this->Witaj->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->Witaj->Name = L"Witaj";
-			this->Witaj->Size = System::Drawing::Size(82, 36);
-			this->Witaj->TabIndex = 0;
-			this->Witaj->Text = L"Witaj";
-			this->Witaj->Click += gcnew System::EventHandler(this, &DashboardForm::Witaj_Click);
+			this->lbName->ForeColor = System::Drawing::Color::White;
+			this->lbName->Location = System::Drawing::Point(455, 610);
+			this->lbName->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->lbName->Name = L"lbName";
+			this->lbName->Size = System::Drawing::Size(84, 46);
+			this->lbName->TabIndex = 2;
+			this->lbName->Text = L"Imiê";
 			// 
-			// lbUserInfo
+			// lbSurname
 			// 
-			this->lbUserInfo->AutoSize = true;
-			this->lbUserInfo->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lbSurname->AutoSize = true;
+			this->lbSurname->BackColor = System::Drawing::Color::Transparent;
+			this->lbSurname->Font = (gcnew System::Drawing::Font(L"Segoe UI", 25.2F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->lbUserInfo->Location = System::Drawing::Point(130, 85);
-			this->lbUserInfo->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->lbUserInfo->Name = L"lbUserInfo";
-			this->lbUserInfo->Size = System::Drawing::Size(169, 31);
-			this->lbUserInfo->TabIndex = 1;
-			this->lbUserInfo->Text = L"U¿ytkownik: ";
-			this->lbUserInfo->Click += gcnew System::EventHandler(this, &DashboardForm::lbUserInfo_Click);
+			this->lbSurname->ForeColor = System::Drawing::Color::White;
+			this->lbSurname->Location = System::Drawing::Point(449, 692);
+			this->lbSurname->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->lbSurname->Name = L"lbSurname";
+			this->lbSurname->Size = System::Drawing::Size(160, 46);
+			this->lbSurname->TabIndex = 3;
+			this->lbSurname->Text = L"Nazwisko";
+			// 
+			// lbPESEL
+			// 
+			this->lbPESEL->AutoSize = true;
+			this->lbPESEL->BackColor = System::Drawing::Color::Transparent;
+			this->lbPESEL->Font = (gcnew System::Drawing::Font(L"Segoe UI", 25.2F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->lbPESEL->ForeColor = System::Drawing::Color::White;
+			this->lbPESEL->Location = System::Drawing::Point(441, 771);
+			this->lbPESEL->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->lbPESEL->Name = L"lbPESEL";
+			this->lbPESEL->Size = System::Drawing::Size(107, 46);
+			this->lbPESEL->TabIndex = 4;
+			this->lbPESEL->Text = L"PESEL";
+			// 
+			// lbMoney
+			// 
+			this->lbMoney->AutoSize = true;
+			this->lbMoney->BackColor = System::Drawing::Color::Transparent;
+			this->lbMoney->Font = (gcnew System::Drawing::Font(L"Segoe UI", 39.75F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(238)));
+			this->lbMoney->ForeColor = System::Drawing::Color::White;
+			this->lbMoney->Location = System::Drawing::Point(1328, 246);
+			this->lbMoney->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->lbMoney->Name = L"lbMoney";
+			this->lbMoney->Size = System::Drawing::Size(195, 71);
+			this->lbMoney->TabIndex = 5;
+			this->lbMoney->Text = L"Money";
+			this->lbMoney->TextAlign = System::Drawing::ContentAlignment::TopCenter;
 			// 
 			// DashboardForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(985, 433);
-			this->Controls->Add(this->lbUserInfo);
-			this->Controls->Add(this->Witaj);
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
+			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->ClientSize = System::Drawing::Size(1650, 792);
+			this->Controls->Add(this->lbMoney);
+			this->Controls->Add(this->lbPESEL);
+			this->Controls->Add(this->lbSurname);
+			this->Controls->Add(this->lbName);
+			this->DoubleBuffered = true;
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"DashboardForm";

@@ -270,7 +270,7 @@ namespace BankApplication {
 		if ((name->Length == 0) || (surname->Length == 0) || (login->Length == 0)
 			|| (password->Length == 0) || (CPassword->Length == 0) || (PESEL->Length == 0)) {
 			MessageBox::Show("Proszê wype³niæ wszystkie pola",
-				"Jedno lub wiêcej pól pozosta³y niewype³nione", MessageBoxButtons::OK);
+				"Jedno lub wiêcej pól pozosta³y niewype³nione", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 			
 			return;
 		}
@@ -278,7 +278,7 @@ namespace BankApplication {
 		//Warunek - identyczne has³a
 		if (String::Compare(password, CPassword) != 0) {
 			MessageBox::Show("Wprowadzono b³êdne has³a!",
-				"B³¹d zgodnoœci", MessageBoxButtons::OK);
+				"B³¹d zgodnoœci", MessageBoxButtons::OK, MessageBoxIcon::Warning);
 
 			return;
 		}
@@ -317,7 +317,7 @@ namespace BankApplication {
 		}
 		catch (Exception^ ex) { //B³¹d po³¹czenia z baz¹ danych
 			MessageBox::Show("B³¹d po³¹czenia z baz¹ danych. Przepraszamy za utrudnienia",
-				"B³¹d po³¹czenia", MessageBoxButtons::OK);
+				"B³¹d po³¹czenia", MessageBoxButtons::OK, MessageBoxIcon::Error);
 		}
 	}
 };

@@ -128,7 +128,7 @@ namespace TestCaptch
             //Jeżeli pętla nie "return" to nie znaleziono żadnego niesparowanego pola
             //A więc użytkownik wygrał
             MessageBox.Show("Brawo nie jesteś robotem! Autoryzacja udana",
-                "reCaptcha");
+                "reCaptcha", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             //Uruchomienie programu właściwego - BankApplication
             System.Diagnostics.Process Proc = new System.Diagnostics.Process();

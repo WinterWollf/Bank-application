@@ -176,8 +176,8 @@ namespace BankApplication {
 		//B³¹d - brak danych
 		if ((login->Length == 0) || (password->Length == 0)) {
 			MessageBox::Show("Proszê wprowadziæ login i has³o!",
-				"B³¹d logowania", MessageBoxButtons::OK);
-			return;
+				"B³¹d logowania", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			return;		
 		}
 		
 		//Obs³uga bazy danych
@@ -212,12 +212,12 @@ namespace BankApplication {
 			}
 			else { //Nie znaleziono u¿ytkownika - b³êdne dane
 				MessageBox::Show("Nieprawid³owy login lub has³o!",
-					"B³êdne dane", MessageBoxButtons::OK);	 
+					"B³êdne dane", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);	 
 			}
 		}
 		catch (Exception^ e) { //B³¹d po³¹czenia z baz¹ danych
 			MessageBox::Show("B³¹d po³¹czenia z baz¹ danych. Przepraszamy za utrudnienia",
-				"B³¹d po³¹czenia", MessageBoxButtons::OK);
+				"B³¹d po³¹czenia", MessageBoxButtons::OK, MessageBoxIcon::Error);
 		}
 	}
 	private: System::Void btRegister_Click(System::Object^ sender, System::EventArgs^ e) {

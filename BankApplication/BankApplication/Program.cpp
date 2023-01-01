@@ -41,7 +41,7 @@ void main(array<String^>^ args) {
 	}
 	else {
 		MessageBox::Show("Odmowa autoryzacji",
-			"Brak autoryzacji", MessageBoxButtons::OK);
+			"Brak autoryzacji", MessageBoxButtons::OK, MessageBoxIcon::Error);
 	}
 
 }

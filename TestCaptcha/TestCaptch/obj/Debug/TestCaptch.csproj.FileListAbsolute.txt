@@ -20,3 +20,14 @@ C:\Users\wikto\Desktop\TestCaptcha\TestCaptch\obj\Debug\TestCaptch.csproj.CoreCo
 C:\Users\wikto\Desktop\TestCaptcha\TestCaptch\obj\Debug\TestCaptch.exe
 C:\Users\wikto\Desktop\TestCaptcha\TestCaptch\obj\Debug\TestCaptch.pdb
 C:\Users\wikto\Desktop\TestCaptcha\TestCaptch\obj\Debug\TestCaptch.reCaptcha.resources
+C:\Users\wikto\Desktop\Bank-application\TestCaptcha\TestCaptch\obj\Debug\TestCaptch.csproj.AssemblyReference.cache
+C:\Users\wikto\Desktop\Bank-application\TestCaptcha\TestCaptch\obj\Debug\TestCaptch.csproj.SuggestedBindingRedirects.cache
+C:\Users\wikto\Desktop\Bank-application\TestCaptcha\TestCaptch\obj\Debug\TestCaptch.reCaptcha.resources
+C:\Users\wikto\Desktop\Bank-application\TestCaptcha\TestCaptch\obj\Debug\TestCaptch.Properties.Resources.resources
+C:\Users\wikto\Desktop\Bank-application\TestCaptcha\TestCaptch\obj\Debug\TestCaptch.csproj.GenerateResource.cache
+C:\Users\wikto\Desktop\Bank-application\TestCaptcha\TestCaptch\obj\Debug\TestCaptch.csproj.CoreCompileInputs.cache
+C:\Users\wikto\Desktop\Bank-application\TestCaptcha\TestCaptch\obj\Debug\TestCaptch.exe
+C:\Users\wikto\Desktop\Bank-application\TestCaptcha\TestCaptch\obj\Debug\TestCaptch.pdb
+C:\Users\wikto\Desktop\Bank-application\TestCaptcha\TestCaptch\bin\Debug\TestCaptch.exe.config
+C:\Users\wikto\Desktop\Bank-application\TestCaptcha\TestCaptch\bin\Debug\TestCaptch.exe
+C:\Users\wikto\Desktop\Bank-application\TestCaptcha\TestCaptch\bin\Debug\TestCaptch.pdb
