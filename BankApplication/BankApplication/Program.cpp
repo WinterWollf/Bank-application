@@ -1,6 +1,7 @@
 #include "LoginForm.h"
 #include "DashboardForm.h"
 #include "RegisterForm.h"
+#include "LogoutForm.h"
 
 using namespace System;
 using namespace System::Windows::Forms;
@@ -16,8 +17,8 @@ void main(array<String^>^ args) {
 		BankApplication::LoginForm loginForm;
 		loginForm.ShowDialog();
 
+		//Prze³¹czenie na rejestracjê
 		if (loginForm.switchToRegister) {
-			//Pokazanie okna rejestracji
 			BankApplication::RegisterForm registerForm;
 			registerForm.ShowDialog();
 
@@ -36,12 +37,16 @@ void main(array<String^>^ args) {
 	}
 
 	if (user != nullptr) {
-		BankApplication::DashboardForm dashBoard(user);
-		Application::Run(% dashBoard);
+		BankApplication::DashboardForm dashboardForm(user);
+		Application::Run(% dashboardForm);
+
+		if (dashboardForm.SwitchToLogout) {
+			BankApplication::LogoutForm logoutForm;
+			logoutForm.ShowDialog();
+		}
 	}
 	else {
 		MessageBox::Show("Odmowa autoryzacji",
 			"Brak autoryzacji", MessageBoxButtons::OK, MessageBoxIcon::Error);
 	}
-
 }

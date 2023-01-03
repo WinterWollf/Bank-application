@@ -1,5 +1,6 @@
   BankApplication.DashboardForm.resources - Embedded, ContainedInManifestFile, 
   BankApplication.LoginForm.resources - Embedded, ContainedInManifestFile, 
+  BankApplication.LogoutForm.resources - Embedded, ContainedInManifestFile, 
   BankApplication.RegisterForm.resources - Embedded, ContainedInManifestFile, 
 ImageRuntimeVersion: v4.0.30319
 Assembly BankApplication, Version=0.0.*, Culture=Język niezmienny (kraj niezmienny): 
@@ -29,12 +30,17 @@ Class User: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
 Class BankApplication.DashboardForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(User): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Boolean SwitchToLogout : Public
 Class BankApplication.LoginForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
     User user : Public
     Boolean switchToRegister : Public
+Class BankApplication.LogoutForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class BankApplication.RegisterForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

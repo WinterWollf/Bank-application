@@ -48,6 +48,8 @@ namespace BankApplication {
 	private: System::Windows::Forms::Label^ lbSurname;
 	private: System::Windows::Forms::Label^ lbPESEL;
 	private: System::Windows::Forms::Label^ lbMoney;
+	private: System::Windows::Forms::Button^ btLogout;
+
 	protected:
 
 	protected:
@@ -70,6 +72,7 @@ namespace BankApplication {
 			this->lbSurname = (gcnew System::Windows::Forms::Label());
 			this->lbPESEL = (gcnew System::Windows::Forms::Label());
 			this->lbMoney = (gcnew System::Windows::Forms::Label());
+			this->btLogout = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// lbName
@@ -129,20 +132,36 @@ namespace BankApplication {
 			this->lbMoney->Text = L"Money";
 			this->lbMoney->TextAlign = System::Drawing::ContentAlignment::TopCenter;
 			// 
+			// btLogout
+			// 
+			this->btLogout->BackColor = System::Drawing::Color::Transparent;
+			this->btLogout->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btLogout.BackgroundImage")));
+			this->btLogout->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->btLogout->Font = (gcnew System::Drawing::Font(L"Calibri", 18));
+			this->btLogout->Location = System::Drawing::Point(146, 96);
+			this->btLogout->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btLogout->Name = L"btLogout";
+			this->btLogout->Size = System::Drawing::Size(116, 51);
+			this->btLogout->TabIndex = 6;
+			this->btLogout->Text = L"Wyloguj";
+			this->btLogout->UseVisualStyleBackColor = false;
+			this->btLogout->Click += gcnew System::EventHandler(this, &DashboardForm::btLogout_Click);
+			// 
 			// DashboardForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->ClientSize = System::Drawing::Size(1650, 792);
+			this->ClientSize = System::Drawing::Size(1154, 634);
+			this->Controls->Add(this->btLogout);
 			this->Controls->Add(this->lbMoney);
 			this->Controls->Add(this->lbPESEL);
 			this->Controls->Add(this->lbSurname);
 			this->Controls->Add(this->lbName);
 			this->DoubleBuffered = true;
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
-			this->Margin = System::Windows::Forms::Padding(2);
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"DashboardForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Us³ugi bankowe AGH - pulpit";
@@ -152,9 +171,19 @@ namespace BankApplication {
 
 		}
 #pragma endregion
-	private: System::Void lbUserInfo_Click(System::Object^ sender, System::EventArgs^ e) {
+	public: bool SwitchToLogout = false;
+
+	//Wylogowanie
+	private: System::Void btLogout_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (MessageBox::Show("Czy na pewno chcesz siê wylogowaæ?",
+			"Wyloguj", MessageBoxButtons::YesNo, MessageBoxIcon::Question) 
+			== System::Windows::Forms::DialogResult::Yes) {
+			this->SwitchToLogout = true;
+			this->Close();
+		}
+		else {
+
+		}
 	}
-	private: System::Void Witaj_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	};
+};
 }

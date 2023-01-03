@@ -10,3 +10,4 @@ C:\Users\wikto\Desktop\Nowy folder\Bank-application\BankApplication\BankApplicat
 C:\Users\wikto\Desktop\Nowy folder\Bank-application\BankApplication\BankApplication\x64\Debug\BankApplication.LoginForm.resources
 C:\Users\wikto\Desktop\Nowy folder\Bank-application\BankApplication\BankApplication\x64\Debug\BankApplication.RegisterForm.resources
 C:\Users\wikto\Desktop\Nowy folder\Bank-application\BankApplication\BankApplication\x64\Debug\BankApplication.vcxproj.GenerateResource.cache
+C:\Users\wikto\Desktop\Bank-application\BankApplication\BankApplication\x64\Debug\BankApplication.LogoutForm.resources
