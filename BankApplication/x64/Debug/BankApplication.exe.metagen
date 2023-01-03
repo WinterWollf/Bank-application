@@ -27,11 +27,20 @@ Class User: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     System.String surname : Public
     Int32 money : Public
     System.String PESEL : Public
+Class Receivers: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 id : Public
+    System.String receiver : Public
+    System.String title : Public
+    System.String amount : Public
 Class BankApplication.DashboardForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(User): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
     Boolean SwitchToLogout : Public
+    User user : Public
+    Receivers receivers : Public
 Class BankApplication.LoginForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

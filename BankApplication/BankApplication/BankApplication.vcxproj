@@ -139,6 +139,7 @@
     <ClInclude Include="LogoutForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Receivers.h" />
     <ClInclude Include="RegisterForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>

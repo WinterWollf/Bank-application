@@ -1,5 +1,6 @@
 #pragma once
 #include "User.h"
+#include "Receivers.h"
 
 namespace BankApplication {
 
@@ -9,32 +10,23 @@ namespace BankApplication {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Data::SqlClient;
 
-	/// <summary>
-	/// Podsumowanie informacji o DashboardForm
-	/// </summary>
+
 	public ref class DashboardForm : public System::Windows::Forms::Form
 	{
 	public:
 		DashboardForm(User ^user)
 		{
 			InitializeComponent();
-			//
-			//TODO: W tym miejscu dodaj kod konstruktora
-			//
-
 			//Inicializacja
 			lbName->Text = user->name;
 			lbSurname->Text = user->surname;
 			lbPESEL->Text = user->PESEL;
 			lbMoney->Text = "" + user->money;
-
 		}
 
 	protected:
-		/// <summary>
-		/// Wyczyœæ wszystkie u¿ywane zasoby.
-		/// </summary>
 		~DashboardForm()
 		{
 			if (components)
@@ -49,22 +41,21 @@ namespace BankApplication {
 	private: System::Windows::Forms::Label^ lbPESEL;
 	private: System::Windows::Forms::Label^ lbMoney;
 	private: System::Windows::Forms::Button^ btLogout;
+	private: System::Windows::Forms::TextBox^ tbReceiver;
+	private: System::Windows::Forms::TextBox^ tbTitle;
+	private: System::Windows::Forms::TextBox^ tbAmount;
+	private: System::Windows::Forms::Button^ btSend;
+
+
 
 	protected:
 
 	protected:
 
 	private:
-		/// <summary>
-		/// Wymagana zmienna projektanta.
-		/// </summary>
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Metoda wymagana do obs³ugi projektanta — nie nale¿y modyfikowaæ
-		/// jej zawartoœci w edytorze kodu.
-		/// </summary>
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(DashboardForm::typeid));
@@ -73,6 +64,10 @@ namespace BankApplication {
 			this->lbPESEL = (gcnew System::Windows::Forms::Label());
 			this->lbMoney = (gcnew System::Windows::Forms::Label());
 			this->btLogout = (gcnew System::Windows::Forms::Button());
+			this->tbReceiver = (gcnew System::Windows::Forms::TextBox());
+			this->tbTitle = (gcnew System::Windows::Forms::TextBox());
+			this->tbAmount = (gcnew System::Windows::Forms::TextBox());
+			this->btSend = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// lbName
@@ -139,7 +134,7 @@ namespace BankApplication {
 			this->btLogout->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->btLogout->Font = (gcnew System::Drawing::Font(L"Calibri", 18));
 			this->btLogout->Location = System::Drawing::Point(146, 96);
-			this->btLogout->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btLogout->Margin = System::Windows::Forms::Padding(2);
 			this->btLogout->Name = L"btLogout";
 			this->btLogout->Size = System::Drawing::Size(116, 51);
 			this->btLogout->TabIndex = 6;
@@ -147,13 +142,70 @@ namespace BankApplication {
 			this->btLogout->UseVisualStyleBackColor = false;
 			this->btLogout->Click += gcnew System::EventHandler(this, &DashboardForm::btLogout_Click);
 			// 
+			// tbReceiver
+			// 
+			this->tbReceiver->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(41)), static_cast<System::Int32>(static_cast<System::Byte>(43)),
+				static_cast<System::Int32>(static_cast<System::Byte>(92)));
+			this->tbReceiver->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->tbReceiver->Font = (gcnew System::Drawing::Font(L"Calibri", 28.2F));
+			this->tbReceiver->ForeColor = System::Drawing::Color::White;
+			this->tbReceiver->Location = System::Drawing::Point(1127, 549);
+			this->tbReceiver->MaxLength = 50;
+			this->tbReceiver->Name = L"tbReceiver";
+			this->tbReceiver->Size = System::Drawing::Size(513, 46);
+			this->tbReceiver->TabIndex = 7;
+			// 
+			// tbTitle
+			// 
+			this->tbTitle->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(41)), static_cast<System::Int32>(static_cast<System::Byte>(43)),
+				static_cast<System::Int32>(static_cast<System::Byte>(92)));
+			this->tbTitle->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->tbTitle->Font = (gcnew System::Drawing::Font(L"Calibri", 28.2F));
+			this->tbTitle->ForeColor = System::Drawing::Color::White;
+			this->tbTitle->Location = System::Drawing::Point(1127, 667);
+			this->tbTitle->MaxLength = 80;
+			this->tbTitle->Name = L"tbTitle";
+			this->tbTitle->Size = System::Drawing::Size(513, 46);
+			this->tbTitle->TabIndex = 8;
+			// 
+			// tbAmount
+			// 
+			this->tbAmount->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(41)), static_cast<System::Int32>(static_cast<System::Byte>(43)),
+				static_cast<System::Int32>(static_cast<System::Byte>(92)));
+			this->tbAmount->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->tbAmount->Font = (gcnew System::Drawing::Font(L"Calibri", 28.2F));
+			this->tbAmount->ForeColor = System::Drawing::Color::White;
+			this->tbAmount->Location = System::Drawing::Point(1127, 781);
+			this->tbAmount->MaxLength = 20;
+			this->tbAmount->Name = L"tbAmount";
+			this->tbAmount->Size = System::Drawing::Size(286, 46);
+			this->tbAmount->TabIndex = 9;
+			// 
+			// btSend
+			// 
+			this->btSend->BackColor = System::Drawing::Color::Transparent;
+			this->btSend->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btSend.BackgroundImage")));
+			this->btSend->Font = (gcnew System::Drawing::Font(L"Calibri", 18, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->btSend->Location = System::Drawing::Point(1357, 870);
+			this->btSend->Name = L"btSend";
+			this->btSend->Size = System::Drawing::Size(151, 60);
+			this->btSend->TabIndex = 10;
+			this->btSend->Text = L"Wykonaj";
+			this->btSend->UseVisualStyleBackColor = false;
+			this->btSend->Click += gcnew System::EventHandler(this, &DashboardForm::btSend_Click);
+			// 
 			// DashboardForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->ClientSize = System::Drawing::Size(1154, 634);
+			this->ClientSize = System::Drawing::Size(1652, 1022);
+			this->Controls->Add(this->btSend);
+			this->Controls->Add(this->tbAmount);
+			this->Controls->Add(this->tbTitle);
+			this->Controls->Add(this->tbReceiver);
 			this->Controls->Add(this->btLogout);
 			this->Controls->Add(this->lbMoney);
 			this->Controls->Add(this->lbPESEL);
@@ -161,7 +213,7 @@ namespace BankApplication {
 			this->Controls->Add(this->lbName);
 			this->DoubleBuffered = true;
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"DashboardForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Us³ugi bankowe AGH - pulpit";
@@ -172,6 +224,66 @@ namespace BankApplication {
 		}
 #pragma endregion
 	public: bool SwitchToLogout = false;
+	
+	public: User^ user = nullptr;
+
+	//Zmienna globalna - odbiorca
+	public: Receivers^ receivers = nullptr;
+
+	//Dodanie nowego rekordu - przelew
+	private: System::Void btSend_Click(System::Object^ sender, System::EventArgs^ e) {
+		//Pobranie wpisanych danych
+		String^ receiver = tbReceiver->Text;
+		String^ title = tbTitle->Text;
+		String^ amount = tbAmount->Text;
+
+		//Warunek - wszystkie pola uzupe³nione
+		if ((receiver->Length == 0) || (title->Length == 0) || (amount->Length == 0)) {
+			MessageBox::Show("Proszê wype³niæ wszystkie pola",
+				"Jedno lub wiêcej pól pozosta³y niewype³nione", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+
+			return;
+		}
+
+		try {
+			//Adres bazy danych
+			String^ connectionString = "Data Source=LAPTOP;Initial Catalog=BankApplication;Integrated Security=True";
+
+			//Ustanowienie po³¹czenia
+			SqlConnection sqlConnection(connectionString);
+			sqlConnection.Open();
+
+			//Zapytanie SQL - wczytanie nowych danych do tabeli "users"
+			String^ sqlQuerry = "INSERT INTO transactions " +
+				"(receiver, title, amount) VALUES" +
+				"(@receiver, @title, @amount);";
+
+			SqlCommand command(sqlQuerry, % sqlConnection);
+			command.Parameters->AddWithValue("@receiver", receiver);
+			command.Parameters->AddWithValue("@title", title);
+			command.Parameters->AddWithValue("@amount", amount);
+
+			command.ExecuteNonQuery();
+
+			//Inicjalizacja zmiennej - odbiorca
+			receivers = gcnew Receivers;
+			receivers->receiver = receiver;
+			receivers->title = title;
+			receivers->amount = amount;
+
+			MessageBox::Show("Przelew zosta³ wys³any",
+				"Potwierdzenie wys³ania przelewu", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+			//Wyczyszczenie pól tekstowych
+			tbReceiver->Clear();
+			tbTitle->Clear();
+			tbAmount->Clear();
+		}
+		catch (Exception^ ex) { //B³¹d po³¹czenia z baz¹ danych
+			MessageBox::Show("B³¹d po³¹czenia z baz¹ danych. Przepraszamy za utrudnienia",
+				"B³¹d po³¹czenia", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		}
+	}
 
 	//Wylogowanie
 	private: System::Void btLogout_Click(System::Object^ sender, System::EventArgs^ e) {
