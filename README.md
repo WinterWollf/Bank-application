@@ -33,19 +33,19 @@ The `Test Captcha` application is the first stage of running the bank applicatio
 Here are some screenshots showcasing the main features of the application:
 
 ### **Captcha**
-   ![Captcha](screenshots/captcha.png)
+![Captcha](screenshots/captcha.png)
 
 ### **Register**
-   ![Register](screenshots/register.png)
+![Register](screenshots/register.png)
 
 ### **Login Screen**
-   ![Login Screen](screenshots/login.png)
+![Login Screen](screenshots/login.png)
 
 ### **Dashboard**
-   ![Dashboard](screenshots/dashboard.png)
+![Dashboard](screenshots/dashboard.png)
 
 ### **Logout**
-   ![Logout](screenshots/logout.png)
+![Logout](screenshots/logout.png)
 
 ## Getting Started
 
